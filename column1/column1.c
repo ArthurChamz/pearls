@@ -9,13 +9,13 @@
 static const int k_shift = 5;
 static const int k_mask  = 0x1F;
 
-static void set(unsigned * const buffer, const int i);
-static int is_set(unsigned * const buffer, const int i);
+static void set(uint32_t * const buffer, const int i);
+static int is_set(uint32_t * const buffer, const int i);
 
 int main(void)
 {
     int i;
-    unsigned buffer[BUFFER_LENGTH] = {};
+    uint32_t buffer[BUFFER_LENGTH] = {};
 
     while(scanf("%d\n", &i) != EOF)
     {
@@ -33,7 +33,7 @@ int main(void)
     return 0;
 }
 
-static void set(unsigned * const buffer, const int i)
+static void set(uint32_t * const buffer, const int i)
 {
     int index    = i >> k_shift;
     int set_bits = i &  k_mask;
@@ -41,7 +41,7 @@ static void set(unsigned * const buffer, const int i)
     buffer[index] |= 1 << set_bits;
 }
 
-static int is_set(unsigned * const buffer, const int i)
+static int is_set(uint32_t * const buffer, const int i)
 {
     int index    = i >> k_shift;
     int set_bits = i &  k_mask;
