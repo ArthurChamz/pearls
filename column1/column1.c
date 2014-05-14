@@ -6,11 +6,11 @@
 #define BITS_PER_WORD (sizeof(uint32_t) * CHAR_BIT)
 #define BUFFER_LENGTH (N / BITS_PER_WORD + 1)
 
-static const int k_shift = 5;
-static const int k_mask  = 0x1F;
+const int k_shift = 5;
+const int k_mask  = 0x1F;
 
-static void set(uint32_t * const buffer, const int i);
-static int is_set(uint32_t * const buffer, const int i);
+void set(uint32_t * const buffer, const int i);
+int is_set(uint32_t * const buffer, const int i);
 
 int main(void)
 {
@@ -33,7 +33,7 @@ int main(void)
     return 0;
 }
 
-static void set(uint32_t * const buffer, const int i)
+void set(uint32_t * const buffer, const int i)
 {
     int index    = i >> k_shift;
     int set_bits = i &  k_mask;
