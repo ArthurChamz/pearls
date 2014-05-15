@@ -41,7 +41,7 @@ void set(uint32_t * const buffer, const int i)
     buffer[index] |= 1 << set_bits;
 }
 
-static int is_set(uint32_t * const buffer, const int i)
+int is_set(uint32_t * const buffer, const int i)
 {
     int index    = i >> k_shift;
     int set_bits = i &  k_mask;
